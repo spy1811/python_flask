@@ -1,0 +1,160 @@
+{% include "header.html" %}
+        <!-- End of Sidebar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Staff Management</h1>
+                   <p> <a href="/leave_insert" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-user fa-sm text-white-50"></i> Add Record</a></p>
+                    <!-- <p class="mb-4">Insert New Record <a target="_blank"
+                            href="/maincategoryinsert">Click Here</a>.</p> -->
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Staff Management Data</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Leave ID</th>
+                                            <th>Staff ID</th>
+                                            <th>Approve Level</th>
+                                            <th>Applied Date</th>
+                                            <th>Status</th>
+                                            <th>Remark</th>
+                                            <th>Operation</th>
+                                            <th>Operation</th>
+                                            <!-- <th>Operation</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                            <!-- {% for staff in staff_display %}
+                                                <td>{{staff.sname}}</td>
+                                            {% endfor %}
+                                            
+                                            {% for leave in leave_id %}
+                                                <td>{{leave.type_name}}</td>
+                                            {% endfor %} -->
+                                               
+                                            
+                                        {% for name in dis %}
+                                        <tr>
+                                                <td>{{name[0]}}</td>
+                                                <td>{{name[8]}}</td>
+                                                <td>{{name[13]}}</td>
+                                                <td>{{name[3]}}</td>
+                                                <td>{{name[4]}}</td>
+                                                <td>{{name[5]}}</td>
+                                                <td>{{name[6]}}</td>
+                                                
+                                                {% if username=='Staff' %}
+
+                                                <td><a href="/leave_update/{{name[0]}}">Edit</a></td>
+                                                <td><a href="/leave_delete/{{name[0]}}">Delete</a></td>
+                                                <!-- <td><a href="/reports">Track</a></td> -->
+
+                                                {% endif %}
+
+                                                {% if username=='HOD' or username=='Principle' or username=='Admin' %}
+                                                <td><form action="/approve" method="post"><input type="hidden" name="id" value="{{name[0]}}"><button type="submit">Approve</button></form></td>
+                                                <td><button type="button">Reject</button></td>
+                                                {% endif %}
+                                        </tr>     
+                                        {% endfor %}
+
+                                    
+
+                                        <!-- <td>{{ dis[8] }}</td>
+                                        <td>{{ dis[13] }}</td> -->
+                                            
+                                        <!-- {% for item in display %}
+                                                <td>{{item.staff_id}}</td>
+                                                <td>{{item.approve_level}}</td>
+                                                <td>{{item.applied_date}}</td>
+                                                <td>{{item.status}}</td>
+                                                <td>{{item.remark}}</td>
+
+
+                                                <td><button type="button">Approve</button></td>
+                                                <td><button type="button">Reject</button></td>
+                                        </tr>
+                                        {% endfor %} -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../static/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="../static/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../static/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="../static/js/demo/datatables-demo.js"></script>
+
+</body>
+
+</html>
